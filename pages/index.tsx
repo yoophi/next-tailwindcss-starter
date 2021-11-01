@@ -2,6 +2,30 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import TailwindSample from "../components/TailwindSample";
+import styled, { css } from "styled-components";
+
+const Button = styled.a`
+  /* This renders the buttons above... Edit me! */
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.5rem 0;
+  margin: 0.5rem 1rem;
+  width: 11rem;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+
+  /* The GitHub button is a primary button
+   * edit this to target it specifically! */
+  ${(props) =>
+    props.primary &&
+    css`
+      background: #ccc;
+      color: black;
+      text-align: center;
+      border: 1px solid #666;
+    `}
+`;
 
 export default function Home() {
   return (
@@ -18,6 +42,17 @@ export default function Home() {
         </h1>
 
         <TailwindSample />
+
+        <div>
+          <Button
+            href="https://github.com/styled-components/styled-components"
+            target="_blank"
+            rel="noopener"
+            primary
+          >
+            GitHub
+          </Button>
+        </div>
 
         <p className={styles.description}>
           Get started by editing{" "}
